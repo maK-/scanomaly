@@ -1,9 +1,0 @@
-[Core]
-Name = fuzz
-Module = fuzz
-
-[Documentation]
-Author = Ciaran McNally
-Version = 0.1
-Website = https://securit.ie
-Description = Simple fuzzer (use *@* to specify where to fuzz) -dl [list to fuzz with]

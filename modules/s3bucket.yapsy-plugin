@@ -1,9 +1,0 @@
-[Core]
-Name = s3bucket
-Module = s3bucket
-
-[Documentation]
-Author = Ciaran McNally
-Version = 0.1
-Website = https://securit.ie
-Description = This finds s3 buckets

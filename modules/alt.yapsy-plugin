@@ -1,9 +1,0 @@
-[Core]
-Name = alt
-Module = alt
-
-[Documentation]
-Author = Ciaran McNally
-Version = 0.1
-Website = https://securit.ie
-Description = Generate alts of folders and files

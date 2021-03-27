@@ -1,9 +1,0 @@
-[Core]
-Name = fuzzenc
-Module = fuzzenc
-
-[Documentation]
-Author = Ciaran McNally
-Version = 0.1
-Website = https://securit.ie
-Description = Simple URL encoded fuzzer (use *@* to specify where to fuzz) -dl [list to fuzz with]

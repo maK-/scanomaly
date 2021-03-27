@@ -1,6 +1,6 @@
 #This configures how the tool parses status codes
 ---
-recursion_depth: 3  #Depth to scan
+recursion_depth: 2  #Depth to scan
 force: False        #Force continue if WAF/uniform responses
 flagsame: False     #Only store unique responses
 session: False      #maintain session
@@ -11,6 +11,7 @@ i_status:           #Statuses to not store
   - 404
   - 405
   - 501
+  - 403
 
 i_size: []          #sizes to ignore
 
