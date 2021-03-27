@@ -1,0 +1,9 @@
+[Core]
+Name = baseline
+Module = baseline
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = This is module can be used to establish a baseline for requests

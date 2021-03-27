@@ -1,0 +1,9 @@
+[Core]
+Name = repo
+Module = repo
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = This is a Directory buster for common repo, config & meta-info files

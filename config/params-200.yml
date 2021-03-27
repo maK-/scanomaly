@@ -1,0 +1,11 @@
+i_status:
+  - 404
+  - 400
+  - 405
+  - 501
+
+mods:
+  - baseline
+  - archives
+  - parameth
+  - fuzzall

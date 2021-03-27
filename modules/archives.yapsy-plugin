@@ -1,0 +1,9 @@
+[Core]
+Name = archives
+Module = archives
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = A smart archives searcher (ideas from https://github.com/mazen160/bfac/)

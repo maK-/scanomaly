@@ -1,0 +1,9 @@
+[Core]
+Name = paramethfuzz
+Module = paramethfuzz
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = Parameter brute forcing but with added fuzzing :)

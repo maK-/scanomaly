@@ -1,0 +1,14 @@
+POST /blog/wp-login.php HTTP/1.1
+Host: securit.ie
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-GB,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: https://securit.ie/blog/wp-login.php
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 99
+Connection: close
+Cookie: wordpress_test_cookie=WP+Cookie+check
+Upgrade-Insecure-Requests: 1
+
+log=a&pwd=b&wp-submit=Log+In&redirect_to=https%3A%2F%2Fsecurit.ie%2Fblog%2Fwp-admin%2F&testcookie=1

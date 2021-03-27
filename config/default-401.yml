@@ -1,0 +1,19 @@
+force: True
+flagsame: True
+session: False
+content: False
+timeout: 0
+
+i_size: []
+
+i_status:
+  - 400
+  - 501
+  - 405
+  - 404
+  - 401
+
+mods: []
+  - bypass
+  - archives
+#  - basic

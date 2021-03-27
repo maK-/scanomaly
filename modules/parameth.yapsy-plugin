@@ -1,0 +1,9 @@
+[Core]
+Name = parameth
+Module = parameth
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = A module for parameter brute forcing (based on maK-/parameth)

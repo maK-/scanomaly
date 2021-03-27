@@ -1,0 +1,17 @@
+force: True
+flagsame: True
+session: False
+content: False
+timeout: 0
+
+i_size: []
+
+i_status:
+  - 404
+  - 400
+  - 405
+  - 501
+
+mods: []
+  - archives
+  - parameth

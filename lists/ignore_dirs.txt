@@ -1,0 +1,16 @@
+img
+imgs
+image
+images
+css
+icons
+icon
+pictures
+picture
+png
+jpg
+jpgs
+style
+styles
+stylesheet
+stylesheets

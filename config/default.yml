@@ -1,0 +1,30 @@
+#This configures how the tool parses status codes
+---
+recursion_depth: 3  #Depth to scan
+force: False        #Force continue if WAF/uniform responses
+flagsame: False     #Only store unique responses
+session: False      #maintain session
+timeout: 0          #Timeout between requests
+content: False      #Store response content
+i_status:           #Statuses to not store 
+  - 400
+  - 404
+  - 405
+  - 501
+
+i_size: []          #sizes to ignore
+
+mods:
+  - dirb
+  - repo
+  - archives
+
+#What modules to run on what status codes
+200_folder:    folder-200.yml
+200_endpoint:  endpoint-200.yml 
+200_params:    params-200.yml
+301:    default-301.yml
+302:    default-302.yml
+403:    default-403.yml
+401:    default-401.yml
+500:    default-500.yml

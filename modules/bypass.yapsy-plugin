@@ -1,0 +1,9 @@
+[Core]
+Name = bypass
+Module = bypass
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = This module attempts to bypass 403's and 401's using common tricks

@@ -1,0 +1,9 @@
+[Core]
+Name = basic
+Module = basic
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = Basic http Authorization brute force

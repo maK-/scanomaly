@@ -1,0 +1,9 @@
+[Core]
+Name = dirb
+Module = dirb
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = This is a Directory buster plugin for Scanomaly

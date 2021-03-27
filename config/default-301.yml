@@ -1,0 +1,20 @@
+force: False
+flagsame: False
+session: False
+content: False
+timeout: 0
+
+
+i_size: []
+
+i_status:
+  - 301
+  - 404
+  - 400
+  - 405
+  - 501
+
+mods:
+  - dirb
+  - repo
+  - archives
