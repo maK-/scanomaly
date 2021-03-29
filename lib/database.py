@@ -155,6 +155,7 @@ class Database:
             datas = self.cursor.fetchall()
         except Exception as e:
             print(e)
+            datas = []
         return datas
 
     #Select all status codes from database
