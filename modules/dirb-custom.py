@@ -7,20 +7,21 @@ from lib.urlObject import UrlObject
 import sys
 
 class DirbCustom(IPlugin):
-    def gen(self, cwd, urls, proxy, headers, timeout, cookies, postdata, 
-            module, datalist):
-        requestList = []   #Store generated request objects
+    def gen(self, reqs, module, rules):
+        requestList = []    #Store generated request objects
         try:
-            data = FileOp(datalist[0]).reader()
+            custom_list = FileOp(rules['datalist'][0]).reader()
         except:
             print('dirb-custom: Provide a wordlist using -dl [wordlist]')
             sys.exit(0)
-        for url in urls:
-            u = UrlObject(url)
-            for directory in data:
-                newurl = u.u_d + directory
-                req_get = RequestObject('reqID',"GET", proxy, headers, 
-                                        timeout, cookies, newurl, postdata,
-                                        module)
+        for req in reqs:
+            u = UrlObject(req.url)
+            #For each item in custom list append to current url
+            for directory in custom_list:
+                newrl = u.u_d+directory
+                req_get = copy.deepcopy(req)
+                req_get.update_url(newurl)
+                req_get.update_reqID('reqID')
+                req_get.update_module(module)
                 requestList.append(req_get)
         return requestList
