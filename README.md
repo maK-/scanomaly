@@ -1,14 +1,14 @@
 # scanomaly
 Automated web fuzzing for anomalies (use python 3.6+)
 
-# Project Roadmap
+# Project Roadmap 2021
 The project needs a few upgrades, for starters I'll be addressing the following in the short term
 
- + Improved Documentation (scanomaly.com/docs/) - This is *highest priority*
+ + **highest priority** - Improved Documentation (scanomaly.com/docs/)
  + Fixing old broken modules (at a minimum, ones covered in this document)
  + Documenting the module/plugin creation process and Usage guides
  + Url tree (a way of tracking covered ground) and removing duplicate scans
- + Post Processing modules (do more things with the results)
+ + Post Processing modules (do more/smarter things with the results)
 
 ## Description
 The goal of this tool is to be a flexible request fuzzer. Modules generate a list of requests. A module can be used to alterate any part of a request. Each element of a request is configurable via the CLI too, the method types, user agents, headers, parameters. 
