@@ -1,0 +1,9 @@
+[Core]
+Name = vhost
+Module = vhost
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = This scans a web server for v-hosts
