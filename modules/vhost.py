@@ -6,7 +6,7 @@ from lib.dataparser import ParseArguments
 from lib.urlObject import UrlObject
 import copy
 
-class Bypass(IPlugin):
+class Vhost(IPlugin):
     def gen(self, reqs, module, rules):
         requestList = []    #Store generated request objects
         common = []
