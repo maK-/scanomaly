@@ -1,4 +1,4 @@
-#This module is used to directory bust with a common directory list
+#This module is used to scan for s3buckets
 from yapsy.IPlugin import IPlugin
 from lib.requestObject import RequestObject
 from lib.fileOp import FileOp
