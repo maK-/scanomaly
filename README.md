@@ -4,7 +4,7 @@ Automated web fuzzing for anomalies (use python 3.6+)
 # Project Roadmap 2021
 The project needs a few upgrades, for starters I'll be addressing the following in the short term
 
- + **highest priority** - Improved Documentation (scanomaly.com/docs/)
+ + **highest priority** - Improved Documentation (http://scanomaly.com/docs/scanomaly/site/)
  + Fixing old broken modules (at a minimum, ones covered in this document)
  + Documenting the module/plugin creation process and Usage guides
  + Url tree (a way of tracking covered ground) and removing duplicate scans
