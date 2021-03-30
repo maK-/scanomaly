@@ -4,7 +4,7 @@ from lib.requestObject import RequestObject
 from lib.fileOp import FileOp
 from lib.dataparser import ParseArguments
 from lib.urlObject import UrlObject
-import sys
+import sys, copy
 
 class DirbCustom(IPlugin):
     def gen(self, reqs, module, rules):
@@ -18,7 +18,7 @@ class DirbCustom(IPlugin):
             u = UrlObject(req.url)
             #For each item in custom list append to current url
             for directory in custom_list:
-                newrl = u.u_d+directory
+                newurl = u.u_d+directory
                 req_get = copy.deepcopy(req)
                 req_get.update_url(newurl)
                 req_get.update_reqID('reqID')
