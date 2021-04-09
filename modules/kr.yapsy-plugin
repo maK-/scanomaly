@@ -1,0 +1,9 @@
+[Core]
+Name = kr
+Module = kr
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = This module leverages the techniques of the following great research https://github.com/assetnote/kiterunner
