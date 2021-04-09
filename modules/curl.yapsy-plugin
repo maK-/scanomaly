@@ -1,0 +1,9 @@
+[Core]
+Name = curl
+Module = curl
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = This module simply allows scanomaly to act like curl and use our CLI request parameters
