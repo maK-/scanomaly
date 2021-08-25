@@ -39,7 +39,11 @@ class ModuleEngine:
                 temp_results = module.plugin_object.gen( req_list, module.name,
                                                          self.rules )
                 notice.infos('Imported: '+fg(2)+str(len(temp_results)))
-                self.multi_Wreck[module.name] = temp_results
+                #If empty can't add array
+                try:
+                    self.multi_Wreck[module.name] += temp_results
+                except:
+                    self.multi_Wreck[module.name] = temp_results
                 self.multi_Req.append(temp_results)
                 mod_count += len(temp_results)
             self.total_count += mod_count
