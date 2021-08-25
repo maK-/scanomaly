@@ -7,6 +7,20 @@ import re
 import argparse
 import ipaddress
 from lib.fileOp import FileOp
+try:
+	from ipaddress import ip_address
+except ImportError:
+	from ipaddr import IPAddress as ip_address
+
+#Get list of Ips from a range
+def findIPs(start, end):
+    start = ip_address(start)
+    end = ip_address(end)
+    result = []
+    while start <= end:
+        result.append(str(start))
+        start += 1
+    return result
 
 if __name__ == '__main__':
     parse = argparse.ArgumentParser()
@@ -23,9 +37,11 @@ if __name__ == '__main__':
     parse.add_argument('-s', '--smart', action='store_true', default=False,
                         help='Only generate URLS with params in the relative files')
     parse.add_argument('-std', '--standin', action='store_true', default=False,
-                        help='Use Standard input to parse GREPS!')
+						help='Use Standard input to parse GREPS!')
     parse.add_argument('-ip', '--fromIP', default=None, nargs='+',
-                        help='Translate network range into urls')
+						help='Translate network range into urls')
+    parse.add_argument('-rip','--space', default=None, nargs='+',
+                        help='Print all IPs between two [ip-a]...[ip-b]')
     parse.add_argument('-i', '--IPList', type=str, default=None,
                         help='Translate IPs from list into URLS')
         
@@ -55,7 +71,17 @@ if __name__ == '__main__':
                 params.add(i)
             lines.append(line)
 
-    if args.all != False:
+    if args.space != None:
+        try:
+            ip_a = args.space[0]
+            ip_b = args.space[1]
+        except:
+            print('provide 2 Ips (-rip 127.0.0.1 127.0.0.10)')
+        data = findIPs(ip_a, ip_b)
+        for i in data:
+            print(i)
+
+    elif args.all != False:
         if args.dir != None:
             new_url_set = set()
             for i in url_set:
