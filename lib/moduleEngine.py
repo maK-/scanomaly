@@ -34,6 +34,7 @@ class ModuleEngine:
         for url, req_list in self.multi_reqs.items():
             notice.infos('Target: '+fg(2)+url)
             mod_count = 0             #per module count
+            target_count = 0          #per target count
             for module in self.mods:
                 notice.infos('Module: '+fg(2)+module.name)
                 temp_results = module.plugin_object.gen( req_list, module.name,
@@ -47,10 +48,11 @@ class ModuleEngine:
                 self.multi_Req.append(temp_results)
                 mod_count += len(temp_results)
             self.total_count += mod_count
-            notice.regs('Requests for Target: '+fg(14)+str(mod_count))
+            target_count += mod_count
+            notice.regs('Requests for Target: '+fg(14)+str(target_count))
             mod_count = 0
             notice.splits()
-        #notice.errs('Total Requests: '+fg(1)+str(total_count))
+        notice.errs('Total Requests: '+fg(1)+str(self.total_count))
                  
 
 
