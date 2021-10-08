@@ -1,4 +1,5 @@
 #This class binds .db databases together
+#Pass in a list of sqlite dbs and an output filename
 import os
 import sys
 import argparse
