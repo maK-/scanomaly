@@ -334,17 +334,16 @@ if __name__ == '__main__':
                                         args.content, args.session, args.force)
             r_engine.run()
         
-
         #Merge all module databases into one                                     
         output_database = 'dbs/'+args.database+'.db'                             
         merge = MergeDBs(db_lists, output_database)                              
         merge.processList()                                                      
-        notice.infos('Databases merged: '+fg(2)+output_database)
+        notice.infos('Databases merged: '+fg(2)+output_database)                 
+                                                                                 
+        #Testing storage                                                         
+        outdb = Database(output_database)                                        
+        outdb.return_all(args.istatus, args.isize) 
 
-        #Testing storage
-        for db_ in db_lists:
-            outdb = Database(db_)
-            outdb.return_all(args.istatus, args.isize)
 
     """                                           _
     *     ___  ___ __ _ _ __   ___  _ __ ___   __ _| |_   _
