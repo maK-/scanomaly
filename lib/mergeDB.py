@@ -31,7 +31,7 @@ class MergeDBs:
                 if i == 0:
                     command = 'cp '+self.dblist[i]+' '+self.output
                     os.system(command)
-                    self.old_db = sqlite3.connect(self.dblist[i])
+                    self.old_db = sqlite3.connect(self.output)
                 else:
                     self.new_db = self.joinDB(self.old_db, self.dblist[i])
                     self.old_db = self.new_db
