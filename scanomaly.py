@@ -27,6 +27,7 @@ from lib.configparser import ConfigParser
 from lib.fileOp import FileOp
 from lib.database import Database
 from lib.anomalyDetect import AnomalyDetect
+from lib.mergeDB import mergeDBs
 from yapsy.PluginManager import PluginManager
 from colored import fg, bg, attr
 
@@ -102,13 +103,14 @@ if __name__ == '__main__':
                         help=fg(8)+'display version information'+rs)
     parse.add_argument('-x', '--istatus',nargs='+',default=[404,400,405,501],
                         help=fg(8)+'specify status to ignore (eg 503 400)'+rs)
-    #----------------------------------------------
+    """
     parse.add_argument('-test','--testdecision', action='store_true', 
                         default=False, help=fg(8)+'Test decision functions'+rs)
     parse.add_argument('-db2', '--dbase2', type=str, default=None,
                         help=fg(8)+'Database for diff functionality'+rs)
     parse.add_argument('-diff', '--diffdbs', type=int, default=0,
                         help=fg(8)+'Diffs between dbs (Use -db and -db2)'+rs)
+    """
     args = parse.parse_args()
 
     #Request variables
@@ -332,6 +334,13 @@ if __name__ == '__main__':
                                         args.content, args.session, args.force)
             r_engine.run()
         
+
+        #Merge all module databases into one                                     
+        output_database = 'dbs/'+args.database+'.db'                             
+        merge = MergeDBs(db_lists, output_database)                              
+        merge.processList()                                                      
+        notice.infos('Databases merged: '+fg(2)+output_database)
+
         #Testing storage
         for db_ in db_lists:
             outdb = Database(db_)
@@ -471,7 +480,7 @@ if __name__ == '__main__':
     if args.printresp == True and args.database != None:
         outdb = Database(args.database)
         outdb.return_detail(args.istatus, args.isize)
-
+    """
     #Print AI output from DB
     if args.anomaly == True and args.database != None:
         outdb = Database(args.database)
@@ -501,3 +510,4 @@ if __name__ == '__main__':
         #read all response data from database
         testbed = baseline.get_data()
         #function to parse data
+    """
