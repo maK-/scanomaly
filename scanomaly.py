@@ -27,7 +27,7 @@ from lib.configparser import ConfigParser
 from lib.fileOp import FileOp
 from lib.database import Database
 from lib.anomalyDetect import AnomalyDetect
-from lib.mergeDB import mergeDBs
+from lib.mergeDB import MergeDBs
 from yapsy.PluginManager import PluginManager
 from colored import fg, bg, attr
 
