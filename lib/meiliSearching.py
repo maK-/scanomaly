@@ -13,8 +13,8 @@ class MeiliS:
 
     #Import all the formatted data into Meilisearch
     def import_all(self):
-        for i in self.dbdata:
-            self.documents.append(self.parse_tuple(i))
+        for i in range(0, len(self.dbdata)):
+            self.documents.append(self.parse_tuple(self.dbdata[i], i))
         
         self.index.add_documents(self.documents)
         return True
@@ -34,9 +34,9 @@ class MeiliS:
         11. requests.reqID 
         """
 
-    def parse_tuple(self, data_tuple):
+    def parse_tuple(self, data_tuple, id_val):
         data = {
-                'id': 1,
+                'id': int(id_val),
                 'reqID': str(data_tuple[11]),
                 'module': str(data_tuple[0]),
                 'url': str(data_tuple[1]),
