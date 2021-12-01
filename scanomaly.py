@@ -28,6 +28,7 @@ from lib.fileOp import FileOp
 from lib.database import Database
 from lib.anomalyDetect import AnomalyDetect
 from lib.mergeDB import MergeDBs
+from lib.meiliSearching import MeiliS
 from yapsy.PluginManager import PluginManager
 from colored import fg, bg, attr
 
@@ -73,6 +74,8 @@ if __name__ == '__main__':
                         help=fg(8)+'print module information'+rs)
     parse.add_argument('-M', '--methods', nargs='+', default=['GET'],
                         help=fg(8)+'specify methods to use'+rs)
+    parse.add_argument('-mei', '--meilisearch', action='store_true',
+                        default=False, help=fg(8)+'Dump to meilisearch'+rs)
     parse.add_argument('-p', '--proxy', type=str, default=None,
                         help=fg(8)+'Use a proxy (http|s://[ip]:[port])'+rs)
     parse.add_argument('-P', '--printed', action='store_true', default=False,
@@ -340,9 +343,20 @@ if __name__ == '__main__':
         merge.processList()                                                      
         notice.infos('Databases merged: '+fg(2)+output_database)                 
                                                                                  
-        #Testing storage                                                         
-        outdb = Database(output_database)                                        
-        outdb.return_all(args.istatus, args.isize) 
+        #Testing storage 
+        outdb = Database(output_database)                                       
+        outdb.return_all(args.istatus, args.isize)
+
+        if args.meilisearch == True:
+            meilidata = MeiliS(outdb.return_data())
+            meilidata.import_all()
+
+    if args.scanner == False and args.scans == False:
+        if args.meilisearch == True:
+            outdb = Database(args.database)
+            meilidata = MeiliS(outdb.return_data())
+            meilidata.import_all()
+    
 
 
     """                                           _
@@ -466,9 +480,11 @@ if __name__ == '__main__':
             notice.regs('Target: '+fg(14)+url)
             for i in db:
                 outdb = Database(i)
-                outdb.return_all([], [])
+                outdb.return_all(args.istatus, args.isize)
+                
 
         #Maybe all results should be merged into one database here?
+        #Trying Meilisearch
                                                 
     #Print output from DB
     if args.printed == True and args.database != None:
@@ -479,6 +495,7 @@ if __name__ == '__main__':
     if args.printresp == True and args.database != None:
         outdb = Database(args.database)
         outdb.return_detail(args.istatus, args.isize)
+
     """
     #Print AI output from DB
     if args.anomaly == True and args.database != None:

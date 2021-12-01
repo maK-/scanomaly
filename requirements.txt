@@ -7,3 +7,4 @@ python-Levenshtein
 colored
 apsw
 PyNomaly
+meilisearch

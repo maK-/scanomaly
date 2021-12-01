@@ -26,7 +26,7 @@ class MergeDBs:
         return db_1
 
     def processList(self):
-        if len(self.dblist) > 1:
+        if len(self.dblist) >= 1:
             for i in range(0, len(self.dblist)):
                 if i == 0:
                     command = 'cp '+self.dblist[i]+' '+self.output
