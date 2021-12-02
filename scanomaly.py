@@ -348,13 +348,13 @@ if __name__ == '__main__':
         outdb.return_all(args.istatus, args.isize)
 
         if args.meilisearch == True:
-            meilidata = MeiliS(outdb.return_data())
+            meilidata = MeiliS(outdb.return_data(), args.database)
             meilidata.import_all()
 
     if args.scanner == False and args.scans == False:
         if args.meilisearch == True:
             outdb = Database(args.database)
-            meilidata = MeiliS(outdb.return_data())
+            meilidata = MeiliS(outdb.return_data(), args.database)
             meilidata.import_all()
     
 

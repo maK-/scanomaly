@@ -5,11 +5,11 @@ import argparse
 import meilisearch
 
 class MeiliS:
-    def __init__(self, dbformat):
+    def __init__(self, dbformat, index_string):
         self.dbdata = dbformat
         self.documents = []
         self.client = meilisearch.Client('http://127.0.0.1:7700')
-        self.index = self.client.index('scanomaly')
+        self.index = self.client.index(index_string)
 
     #Import all the formatted data into Meilisearch
     def import_all(self):
