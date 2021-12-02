@@ -38,14 +38,31 @@ class MeiliS:
         data = {
                 'id': int(id_val),
                 'reqID': str(data_tuple[11]),
+                'method': str(data_tuple[8]),
                 'module': str(data_tuple[0]),
                 'url': str(data_tuple[1]),
-                'method': str(data_tuple[8]),
-                'content': str(data_tuple[9])
+                'status': str(data_tuple[4]),
+                'request.headers': str(data_tuple[2]),
+                'response.headers': str(data_tuple[10]),
+                'size': str(data_tuple[3]),
+                'title': self.get_title(data_tuple[9])
+                #'content': str(data_tuple[9])
         }
         print(data)
         return data
         
-            
-        
-         
+    #Get title from content
+    def get_title(self, content):
+        t1 = ''
+        t2 = ''
+        if '<title>' in content:
+            t1 = content.split('<title>')[1]
+            t2 = t1.split('</title>')[0]
+        elif '<TITLE>' in content:
+            t1 = content.split('<TITLE>')[1]
+            t2 = t1.split('</TITLE>')[0]
+
+        if len(t2) > 0 and len(t2) < 250:
+            return t2
+        else:
+            return ''
