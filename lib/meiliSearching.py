@@ -3,6 +3,7 @@ import os
 import sys
 import argparse
 import meilisearch
+import uuid
 
 class MeiliS:
     def __init__(self, dbformat, index_string):
@@ -36,7 +37,7 @@ class MeiliS:
 
     def parse_tuple(self, data_tuple, id_val):
         data = {
-                'id': int(id_val),
+                'id': str(uuid.uuid1()),
                 'reqID': str(data_tuple[11]),
                 'method': str(data_tuple[8]),
                 'module': str(data_tuple[0]),
