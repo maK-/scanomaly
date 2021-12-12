@@ -46,8 +46,8 @@ class MeiliS:
                 'request.headers': str(data_tuple[2]),
                 'response.headers': str(data_tuple[10]),
                 'size': str(data_tuple[3]),
-                'title': self.get_title(data_tuple[9])
-                #'content': str(data_tuple[9])
+                'title': self.get_title(data_tuple[9]),
+                'content': str(data_tuple[9])
         }
         print(data)
         return data
