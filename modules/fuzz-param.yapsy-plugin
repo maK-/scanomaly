@@ -1,0 +1,9 @@
+[Core]
+Name = fuzz-param
+Module = fuzz-param
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = Put -dl specified payloads into request fields (without parameter brute)
