@@ -1,0 +1,9 @@
+[Core]
+Name = log4j
+Module = log4j
+
+[Documentation]
+Author = Ciaran McNally
+Version = 0.1
+Website = https://securit.ie
+Description = CVE-2021-44228: Use -dl '${jdni:ldap:// YOUR PAYLOAD}'
