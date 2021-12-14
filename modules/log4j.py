@@ -76,8 +76,7 @@ class Fuzz(IPlugin):
                         'Expect','Forwarded','From','Max-Forwards',
                         'Proxy-Authorization', 'X-Forwarded-For', 'Range',
                         'Content-Deposition', 'X-Amz-Target','Content-Type',
-                        'Username','IP', 'IPaddress','Hostname'
-            }
+                        'Username','IP', 'IPaddress','Hostname']
             #Generate requests using mini_headers and value provided
             for req in reqs:
                 req_head = copy.deepcopy(req)
