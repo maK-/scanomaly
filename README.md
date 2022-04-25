@@ -41,6 +41,12 @@ The following are mostly optional...
 
 `-dl` Pass cli params into a module
 
+## External Integrations
+Meilisearch is a very user friendly API and search engine. It makes it very handy to search
+through lots of data quickly. To output results into meilisearch use the `-mei` flag.
+The default is 127.0.0.1:7700 but for a custom meilisearch instance use the following flag
+`-conn <host> <port> <password>` or `-conn <host> <port>`
+
 ## Modules
 To view all modules and their info use `-m all -mi`
 If you want to store the responses for the folowing modules, add `-db [databasename]`
