@@ -6,10 +6,18 @@ import meilisearch
 import uuid
 
 class MeiliS:
-    def __init__(self, dbformat, index_string):
+    def __init__(self, dbformat, index_string, mconn=[]):
         self.dbdata = dbformat
         self.documents = []
-        self.client = meilisearch.Client('http://127.0.0.1:7700')
+        self.mconn = mconn
+        if len(mconn) == 0:
+            self.mconn.append('127.0.0.1')
+            self.mconn.append('7700')
+        self.murl = 'http://'+mconn[0]+':'+mconn[1]
+        if len(self.mconn) > 2:
+            self.client = meilisearch.Client(self.murl,self.mconn[2])
+        else:
+            self.client = meilisearch.Client(self.murl)
         self.index = self.client.index(index_string)
 
     #Import all the formatted data into Meilisearch
