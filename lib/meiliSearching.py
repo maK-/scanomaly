@@ -6,13 +6,17 @@ import meilisearch
 import uuid
 
 class MeiliS:
-    def __init__(self, dbformat, index_string, mconn=[]):
+    def __init__(self, dbformat, index_string, mconn=[], mei=[]):
         self.dbdata = dbformat
         self.documents = []
         self.mconn = mconn
-        if len(mconn) == 0:
+        self.mei = mei
+        if len(self.mconn) == 0:
             self.mconn.append('127.0.0.1')
             self.mconn.append('7700')
+        if len(self.mei) < 2:
+            self.mei.append(str(uuid.uuid1()))
+            self.mei.append(str(uuid.uuid1()))
         self.murl = 'http://'+mconn[0]+':'+mconn[1]
         if len(self.mconn) > 2:
             self.client = meilisearch.Client(self.murl,self.mconn[2])
@@ -46,6 +50,8 @@ class MeiliS:
     def parse_tuple(self, data_tuple, id_val):
         data = {
                 'id': str(uuid.uuid1()),
+                'task': self.mei[0],
+                'projectid': self.mei[1],
                 'reqID': str(data_tuple[11]),
                 'method': str(data_tuple[8]),
                 'module': str(data_tuple[0]),

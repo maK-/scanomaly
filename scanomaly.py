@@ -74,9 +74,9 @@ if __name__ == '__main__':
                         help=fg(8)+'print module information'+rs)
     parse.add_argument('-M', '--methods', nargs='+', default=['GET'],
                         help=fg(8)+'specify methods to use'+rs)
-    parse.add_argument('-mei', '--meilisearch', action='store_true',
+    parse.add_argument('-mei', '--meilisearch', nargs='+', default=[]
                         default=False, help=fg(8)+'Dump to meilisearch'+rs)
-    parse.add_argument('-conn', '--meiconn', nargs='+',
+    parse.add_argument('-conn', '--meiconn', nargs='+', default=[]
                         help=fg(8)+'Meilisearch connect <ip> <port> <passw>'+rs)
     parse.add_argument('-p', '--proxy', type=str, default=None,
                         help=fg(8)+'Use a proxy (http|s://[ip]:[port])'+rs)
@@ -349,14 +349,16 @@ if __name__ == '__main__':
         outdb = Database(output_database)                                       
         outdb.return_all(args.istatus, args.isize)
 
-        if args.meilisearch == True:
-            meilidata = MeiliS(outdb.return_data(), args.database, args.meiconn)
+        if len(args.meilisearch) > 0:
+            meilidata = MeiliS(outdb.return_data(), args.database, 
+                               args.meiconn, args.meilisearch)
             meilidata.import_all()
 
     if args.scanner == False and args.scans == False:
-        if args.meilisearch == True:
+        if len(args.meilisearch) > 0:
             outdb = Database(args.database)
-            meilidata = MeiliS(outdb.return_data(), args.database, args.meiconn)
+            meilidata = MeiliS(outdb.return_data(), args.database, 
+                               args.meiconn, args.meilisearch)
             meilidata.import_all()
     
 
