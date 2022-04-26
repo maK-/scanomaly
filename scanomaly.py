@@ -340,7 +340,7 @@ if __name__ == '__main__':
             r_engine.run()
         
         #Merge all module databases into one                                     
-        output_database = 'dbs/'+args.database+'.db'                             
+        output_database = cwd+'dbs/'+args.database+'.db'                             
         merge = MergeDBs(db_lists, output_database)                              
         merge.processList()                                                      
         notice.infos('Databases merged: '+fg(2)+output_database)                 
