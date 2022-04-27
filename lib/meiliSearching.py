@@ -50,7 +50,7 @@ class MeiliS:
     def parse_tuple(self, data_tuple, id_val):
         data = {
                 'id': str(uuid.uuid1()),
-                'task': self.mei[0],
+                'taskid': self.mei[0],
                 'projectid': self.mei[1],
                 'reqID': str(data_tuple[11]),
                 'method': str(data_tuple[8]),
