@@ -74,8 +74,8 @@ if __name__ == '__main__':
                         help=fg(8)+'print module information'+rs)
     parse.add_argument('-M', '--methods', nargs='+', default=['GET'],
                         help=fg(8)+'specify methods to use'+rs)
-    parse.add_argument('-mei', '--meilisearch', nargs='+', default=[]
-                        default=False, help=fg(8)+'Dump to meilisearch'+rs)
+    parse.add_argument('-mei', '--meilisearch', nargs='+', default=[],
+                        help=fg(8)+'Dump to meilisearch'+rs)
     parse.add_argument('-conn', '--meiconn', nargs='+', default=[]
                         help=fg(8)+'Meilisearch connect <ip> <port> <passw>'+rs)
     parse.add_argument('-p', '--proxy', type=str, default=None,
