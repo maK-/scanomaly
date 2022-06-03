@@ -76,7 +76,7 @@ if __name__ == '__main__':
                         help=fg(8)+'specify methods to use'+rs)
     parse.add_argument('-mei', '--meilisearch', nargs='+', default=[],
                         help=fg(8)+'Dump to meilisearch'+rs)
-    parse.add_argument('-conn', '--meiconn', nargs='+', default=[]
+    parse.add_argument('-conn', '--meiconn', nargs='+', default=[],
                         help=fg(8)+'Meilisearch connect <ip> <port> <passw>'+rs)
     parse.add_argument('-p', '--proxy', type=str, default=None,
                         help=fg(8)+'Use a proxy (http|s://[ip]:[port])'+rs)
