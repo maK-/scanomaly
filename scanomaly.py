@@ -216,7 +216,12 @@ if __name__ == '__main__':
 
     #Generate a list of urls
     if args.urlist != None:
-        urlist = FileOp(args.urlist).reader()
+        urlist = []
+        dirty_urlist = FileOp(args.urlist).reader()
+        #Remove non http urls
+        for u in dirty_urlist:
+            if u.startswith('http'):
+                urlist.append(u)
         if len(multi_url) == 0:
             for url in urlist:
                 urlMulti = []
