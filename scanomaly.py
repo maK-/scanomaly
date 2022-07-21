@@ -104,6 +104,8 @@ if __name__ == '__main__':
                         help=fg(8)+'Specify a URL to use'+rs)
     parse.add_argument('-ul', '--urlist', type=str, default=None,
                         help=fg(8)+'Specify a list of URLs'+rs)
+    parse.add_argument('-us', '--urlseg', nargs='+', default=[],
+                        help=fg(8)+'Segment of URL list'+rs)
     parse.add_argument('-v', '--version', action='store_true', default=True,
                         help=fg(8)+'display version information'+rs)
     parse.add_argument('-x', '--istatus',nargs='+',default=[404,400,405,501],
@@ -218,6 +220,9 @@ if __name__ == '__main__':
     if args.urlist != None:
         urlist = []
         dirty_urlist = FileOp(args.urlist).reader()
+        if len(args.urlseg) == 2:
+            new_dirty = dirty_urlist[int(args.urlseg[0]):int(args.urlseg[1])]
+            dirty_urlist = new_dirty
         #Remove non http urls
         for u in dirty_urlist:
             if u.startswith('http'):
