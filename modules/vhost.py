@@ -10,6 +10,7 @@ class Vhost(IPlugin):
     def gen(self, reqs, module, rules):
         requestList = []    #Store generated request objects
         common = []
+        domains = []
         try:
             common = FileOp(rules['cwd']+'/lists/vhost-list.txt').reader()
 
@@ -18,6 +19,8 @@ class Vhost(IPlugin):
                 domains = FileOp(rules['datalist'][1]).reader()
             elif len(rules['datalist']) == 1:
                 domains = FileOp(rules['datalist'][0]).reader()
+            else:
+                domains = []
         except:
             print('vhost module: -dl [domain] [subs.txt] or -dl [subs.txt]')
         
