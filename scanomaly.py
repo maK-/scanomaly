@@ -31,9 +31,13 @@ from lib.mergeDB import MergeDBs
 from lib.meiliSearching import MeiliS
 from yapsy.PluginManager import PluginManager
 from colored import fg, bg, attr
+import gc
 
 rs = attr('reset')
 notice = Notice()
+#Enabling garbage collection
+gc.enable()
+
 if __name__ == '__main__':
     parse = argparse.ArgumentParser()
     parse.add_argument('-a', '--agent', type=str, default='Scanomaly v2.0',
@@ -363,6 +367,9 @@ if __name__ == '__main__':
             meilidata = MeiliS(outdb.return_data(), args.database, 
                                args.meiconn, args.meilisearch)
             meilidata.import_all()
+        
+        #Running garbage collection after a run
+        gc.collect()
 
     if args.scanner == False and args.scans == False:
         if len(args.meilisearch) > 0:
@@ -496,9 +503,8 @@ if __name__ == '__main__':
                 outdb = Database(i)
                 outdb.return_all(args.istatus, args.isize)
                 
-
-        #Maybe all results should be merged into one database here?
-        #Trying Meilisearch
+        #Run garbage collector
+        gc.collect()
                                                 
     #Print output from DB
     if args.printed == True and args.database != None:
