@@ -14,8 +14,8 @@ class Basic(IPlugin):
         usernames = rules['datalist']            
         if len(usernames) == 0:
             print('basic: Use -dl [usernames]')
-        passwords = FileOp(cwd+'/lists/password.txt').reader()
-        common = ['root', 'admin', 'test', 'demo']
+        passwords = FileOp(rules['cwd']+'/lists/password.txt').reader()
+        common = ['root', 'admin', 'test', 'demo', 'dev']
         users = set(common + usernames)
         
         
