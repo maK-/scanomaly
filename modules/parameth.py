@@ -19,10 +19,8 @@ class Parameth(IPlugin):
     def gen(self, reqs, module, rules):
         requestList = []   #Store generated request objects
         params = FileOp(rules['cwd']+'/lists/parameters.txt').reader()
-        headers = FileOp(rules['cwd']+'/lists/all-headers.txt').reader()
        
         paramValue = 'discobiscuits'
-        headerValue = '127.0.0.1'
 
         db = ''
         for req in reqs:
@@ -45,26 +43,4 @@ class Parameth(IPlugin):
                 requestList.append(req_post)
                 del ndata[param]
 
-            #Brute Request Headers
-            for head in headers:
-                req_head = copy.deepcopy(req)
-                heads = req.headers.copy()
-                heads[head] = headerValue
-                req_head.update_headers(heads)
-                req_head.update_reqID('reqID')
-                req_head.update_module(module)
-                requestList.append(req_head)
-                del heads[head]
-
-            #Brute Cookies
-            for cookie in params:
-                req_c = copy.deepcopy(req)
-                monster = req.cookies.copy()
-                monster[cookie] = paramValue
-                req_c.update_cookies(monster)
-                req_c.update_reqID('reqID')
-                req_c.update_module(module)
-                requestList.append(req_c)
-                del monster[cookie]
-                
         return requestList
