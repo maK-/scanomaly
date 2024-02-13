@@ -102,13 +102,13 @@ class Database:
         resps = self.return_data()
         try:
             forprint = fg(1)+'Module: '+fg(12)+'Method '+self.rs+'URL '
-            forprint += fg(15)+'status '+fg(10)+'size '+fg(3)+'time '
+            forprint += fg(10)+'status '+fg(15)+'size '+fg(3)+'time '
             forprint += fg(13)+'numHeaders '+fg(14)+'numTokens '+fg(8)+'reqID'
             forprint += self.rs
             print(forprint)
             for i in resps:
                 response = fg(1)+i[0]+self.rs+': '+fg(12)+i[8]+' '+self.rs+i[1]
-                response += ' '+fg(15)+i[4]+' '+fg(10)+i[3]+' '+fg(3)+i[5]+' '
+                response += ' '+fg(10)+i[4]+' '+fg(15)+i[3]+' '+fg(3)+i[5]+' '
                 response += fg(13)+i[6]+' '+fg(14)+i[7]+'  '+fg(8)+i[11]
                 response += self.rs
                 if i[4] not in i_status:
@@ -122,13 +122,13 @@ class Database:
     def return_detail(self, i_status, i_size):
         resps = self.return_data()
         try:
-            forprint = fg(1)+'Module: '+self.rs+'URL '+fg(15)+'status '+fg(10)
+            forprint = fg(1)+'Module: '+self.rs+'URL '+fg(10)+'status '+fg(15)
             forprint += 'size '+fg(3)+'time '+fg(13)+'numHeaders '+fg(14)
             forprint += 'numTokens'+fg(8)+' headers'+self.rs
             print(forprint)
             for i in resps:
                 response = fg(1)+i[0]+self.rs+': '+self.rs+i[1]+' '
-                response += fg(15)+i[4]+' '+fg(10)+i[3]+' '+fg(3)+i[5]+' '
+                response += fg(10)+i[4]+' '+fg(15)+i[3]+' '+fg(3)+i[5]+' '
                 response += fg(13)+i[6]+' '+fg(14)+i[7]+'  '+fg(8)+i[10]
                 response += self.rs
                 if i[4] not in i_status:
